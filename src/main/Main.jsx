@@ -23,8 +23,8 @@ export default function Main() {
                 }}
             >
                 <img
-                    src="https://source.unsplash.com/random/1500x700"
-                    alt="a"
+                    src="C:\Users\acorn\Desktop\tttttest\public\img\10.gif"
+                    alt="mainImg"
                     style={{ width: '100%', height: '100%' }}
                 />
             </Box>
