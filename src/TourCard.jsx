@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CardContent from '@mui/material/CardContent';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import CardMedia from '@mui/material/CardMedia';
@@ -7,7 +7,6 @@ import { Button, Card } from '@mui/material';
 import AddBoxRoundedIcon from '@mui/icons-material/AddBoxRounded';
 import StarIcon from '@mui/icons-material/Star';
 import output from './finalresult.json';
-import AppendCard from './AppendCard';
 
 function textOverCut(txt, len, lastTxt) {
     if (len === '' || len == null) {
@@ -24,8 +23,16 @@ function textOverCut(txt, len, lastTxt) {
     return txt;
 }
 
-export default function TourCard() {
-    const handleAddButtonClick = (item) => {};
+export default function TourCard({ selectedItems, setSelectedItems }) {
+    // const [selectedItems, setSelectedItems] = useState([]);
+
+    const handleAddButtonClick = (item) => {
+        setSelectedItems((choiceItems) => [...choiceItems, item]);
+    };
+
+    // useEffect(() => {
+    //     console.log('TourCard.jsx :', selectedItems);
+    // }, [selectedItems]);
 
     return (
         <>

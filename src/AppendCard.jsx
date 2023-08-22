@@ -6,28 +6,24 @@ import Typography from '@mui/material/Typography';
 import { Button, Card } from '@mui/material';
 import AddBoxRoundedIcon from '@mui/icons-material/AddBoxRounded';
 import StarIcon from '@mui/icons-material/Star';
-import output from './finalresult.json';
-import PlanCard from './PlanCard';
-import { useState } from 'react';
 
-// function textOverCut(txt, len, lastTxt) {
-//     if (len === '' || len == null) {
-//         // 기본값
-//         len = 12;
-//     }
-//     if (lastTxt === '' || lastTxt == null) {
-//         // 기본값
-//         lastTxt = '...';
-//     }
-//     if (txt.length > len) {
-//         txt = txt.substr(0, len) + lastTxt;
-//     }
-//     return txt;
-// }
+function textOverCut(txt, len, lastTxt) {
+    if (len === '' || len == null) {
+        // 기본값
+        len = 12;
+    }
+    if (lastTxt === '' || lastTxt == null) {
+        // 기본값
+        lastTxt = '...';
+    }
+    if (txt.length > len) {
+        txt = txt.substr(0, len) + lastTxt;
+    }
+    return txt;
+}
 
-export default function AppendCard() {
-    const [tour, setTour] = useState([]);
-
+export default function AppendCard({ selectedItems }) {
+    // console.log('Test.jsx :', { selectedItems });
     return (
         <>
             {selectedItems.map((item, index) => (
@@ -56,7 +52,7 @@ export default function AppendCard() {
                                 fontSize: 12.8,
                             }}
                         >
-                            {item.title}
+                            {textOverCut(item.title, 10.8, '...')}
                         </Typography>
                         <Typography variant="div">
                             <span
@@ -70,7 +66,7 @@ export default function AppendCard() {
                                 도로명
                             </span>
                             <Typography variant="h6" sx={{ fontSize: 8.3 }}>
-                                {item.addr1}
+                                {textOverCut(item.addr1, 15, '...')}
                             </Typography>
                         </Typography>
                         <div>

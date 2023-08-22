@@ -23,7 +23,7 @@ export default function Main() {
                 }}
             >
                 <img
-                    src="C:\Users\acorn\Desktop\tttttest\public\img\10.gif"
+                    // src="C:\Users\acorn\Desktop\tttttest\public\img\10.gif"
                     alt="mainImg"
                     style={{ width: '100%', height: '100%' }}
                 />

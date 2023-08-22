@@ -6,7 +6,7 @@ export default function AppendList() {
             <hr />
             <h3>선택한 여행지</h3>
             <hr />
-            {/* <AppendCard /> */}
+            <AppendCard />
         </>
     );
 }
