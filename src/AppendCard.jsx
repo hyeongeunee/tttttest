@@ -66,7 +66,7 @@ export default function AppendCard({ selectedItems }) {
                                 도로명
                             </span>
                             <Typography variant="h6" sx={{ fontSize: 8.3 }}>
-                                {textOverCut(item.addr1, 15, '...')}
+                                {textOverCut(item.addr1, 14.8, '...')}
                             </Typography>
                         </Typography>
                         <div>

@@ -23,6 +23,7 @@ export default function Main() {
                 }}
             >
                 <img
+                    src="https://picsum.photos/1200/700"
                     // src="C:\Users\acorn\Desktop\tttttest\public\img\10.gif"
                     alt="mainImg"
                     style={{ width: '100%', height: '100%' }}

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 // import BookmarkIcon from '@mui/icons-material/Bookmark';
 import Test from './Test';
+// import Main from './main/Main';
 
 function App() {
     // const [modalOpen, setModalOpen] = useState(false);
@@ -40,6 +41,7 @@ function App() {
                     </div>
                 </div>
             </Modal> */}
+            {/* <Main /> */}
             <Test />
         </div>
     );

@@ -23,16 +23,10 @@ function textOverCut(txt, len, lastTxt) {
     return txt;
 }
 
-export default function TourCard({ selectedItems, setSelectedItems }) {
-    // const [selectedItems, setSelectedItems] = useState([]);
-
+export default function TourCard({  setSelectedItems }) {
     const handleAddButtonClick = (item) => {
         setSelectedItems((choiceItems) => [...choiceItems, item]);
     };
-
-    // useEffect(() => {
-    //     console.log('TourCard.jsx :', selectedItems);
-    // }, [selectedItems]);
 
     return (
         <>
