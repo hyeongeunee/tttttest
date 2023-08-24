@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 // import PersonIcon from '@mui/icons-material/Person';
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 // import BookmarkIcon from '@mui/icons-material/Bookmark';
-import Test from './Test';
+import CreatePlanner from './CreatePlanner';
 // import Main from './main/Main';
 
 function App() {
@@ -42,7 +42,7 @@ function App() {
                 </div>
             </Modal> */}
             {/* <Main /> */}
-            <Test />
+            <CreatePlanner />
         </div>
     );
 }

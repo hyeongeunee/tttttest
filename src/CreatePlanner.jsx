@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Grid } from '@mui/material';
-import './Test.css';
+import './CreatePlanner.css';
 import DatePicker from './plan/DatePicker';
 import Map from './Map';
 import TourCard from './TourCard';
-// import AppendCard from './AppendCard';
 
-function Test() {
+function CreatePlanner() {
     const [selectedItems, setSelectedItems] = useState([]);
     const [expanded, setExpanded] = useState('panel0');
 
@@ -15,10 +14,10 @@ function Test() {
     };
 
     return (
-        <div className="TestContainer">
+        <div className="PlannerContainer">
             <Grid container className="gridContainer">
                 <Grid item className="leftbar" xs={12} sm={2}>
-                    <DatePicker expanded={expanded} handleChange={handleChange} selectedItems={selectedItems}/>
+                    <DatePicker expanded={expanded} handleChange={handleChange} selectedItems={selectedItems} />
                     {/* <AppendCard selectedItems={selectedItems} /> */}
                 </Grid>
                 <Grid item className="maparea" xs={12} sm={8}>
@@ -32,4 +31,4 @@ function Test() {
     );
 }
 
-export default Test;
+export default CreatePlanner;
