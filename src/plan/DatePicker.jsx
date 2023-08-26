@@ -8,13 +8,13 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import AppendCard from '../AppendCard';
+import AppendCard from './AppendCard';
 import AlertTitle from '@mui/material/AlertTitle';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import ko from 'date-fns/locale/ko';
 
-function DatePicker({ selectedItems }) {
+function DatePicker({ selectedItems, setSelectedItems }) {
     const MAX_DATE = 5;
 
     const [state, setState] = useState([
@@ -58,7 +58,11 @@ function DatePicker({ selectedItems }) {
                                 <Typography>DAY {i + 1}</Typography>
                             </AccordionSummary>
                             <AccordionDetails style={{ padding: 0 }}>
-                                <AppendCard selectedItems={selectedItems} day={i + 1} />
+                                <AppendCard
+                                    selectedItems={selectedItems}
+                                    setSelectedItems={setSelectedItems}
+                                    day={i + 1}
+                                />
                             </AccordionDetails>
                         </Accordion>
                     );
@@ -66,7 +70,7 @@ function DatePicker({ selectedItems }) {
             }
             return accordions;
         },
-        [expanded, selectedItems]
+        [expanded, selectedItems, setSelectedItems]
     );
 
     useEffect(() => {
@@ -77,7 +81,7 @@ function DatePicker({ selectedItems }) {
             const newAccordions = createAccordions(startDate, endDate);
             setAccordions(newAccordions);
         }
-    }, [state, expanded, selectedItems, createAccordions]);
+    }, [state, expanded, selectedItems, createAccordions, setSelectedItems]);
 
     return (
         <div>
