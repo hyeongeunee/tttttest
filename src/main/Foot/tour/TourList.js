@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 // @mui
-import { Grid } from '@mui/material';
-import TourCard from './TourCard';
+import { Grid } from "@mui/material";
+import TourCard from "./TourCard";
 
 // ----------------------------------------------------------------------
 
@@ -20,4 +20,4 @@ export default function ProductList({ tourArray, ...other }) {
     </Grid>
   );
 }
-export { default as TourList } from './TourList';
+export { default as TourList } from "./TourList";
