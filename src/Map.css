@@ -60,6 +60,7 @@
     background: #2b2d36;
     color: #aaabaf;
     line-height: 1;
+    overflow: hidden;
 }
 
 .overlaybox span .title {

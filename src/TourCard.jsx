@@ -7,25 +7,20 @@ import { Button, Card } from '@mui/material';
 import AddBoxRoundedIcon from '@mui/icons-material/AddBoxRounded';
 import StarIcon from '@mui/icons-material/Star';
 import output from './finalresult.json';
+import { textOverCut } from './textOverCut.js';
 
-function textOverCut(txt, len, lastTxt) {
-    if (len === '' || len == null) {
-        // 기본값
-        len = 12;
-    }
-    if (lastTxt === '' || lastTxt == null) {
-        // 기본값
-        lastTxt = '...';
-    }
-    if (txt.length > len) {
-        txt = txt.substr(0, len) + lastTxt;
-    }
-    return txt;
-}
-
-export default function TourCard({  setSelectedItems }) {
+export default function TourCard({ selectedItems, setSelectedItems, selectedIndex }) {
     const handleAddButtonClick = (item) => {
-        setSelectedItems((choiceItems) => [...choiceItems, item]);
+        const selectedDate = new Date().toISOString().substr(0, 10);
+        let updatedArray = [...selectedItems];
+
+        // updatedArray[selectedIndex]가 배열이 아니거나 null 또는 undefined일 때 초기화
+        if (!Array.isArray(updatedArray[selectedIndex])) {
+            updatedArray[selectedIndex] = [];
+        }
+
+        updatedArray[selectedIndex].push({ ...item, date: selectedDate });
+        setSelectedItems(updatedArray);
     };
 
     return (
