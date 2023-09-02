@@ -10,21 +10,18 @@ import { textOverCut } from "./textOverCut.js";
 
 export default function AppendCard({ selectedItems, setSelectedItems }) {
   const removeBtnClick = (itemToRemove) => {
-    // 선택한 항목을 제외한 나머지 항목들을 유지하는 방법으로 필터링합니다.
     const updatedItems = selectedItems.filter(
       (item) => item.contentid !== itemToRemove.contentid
     );
     setSelectedItems(updatedItems);
   };
 
-  console.log(selectedItems);
-
-  const itemsToDisplay = selectedItems || [];
+  const choiceItems = selectedItems ? [...selectedItems] : [];
   return (
     <>
-      {itemsToDisplay.map((item, index) => (
+      {choiceItems.map((item, index) => (
         <Card
-          key={index}
+          key={item.contentid}
           sx={{
             display: "flex",
             width: "auto",
