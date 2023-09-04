@@ -5,13 +5,13 @@ import SignUp from './login/SignUp';
 import App from './App';
 
 export default function RouteApp() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<App/>} />
-        <Route path="/signIn" element={<SignIn />} />
-        <Route path="/signUp" element={<SignUp/>}/>
-      </Routes>
-    </Router>
-  );
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<App />} />
+                <Route path="/signIn" element={<SignIn />} />
+                <Route path="/signUp" element={<SignUp />} />
+            </Routes>
+        </Router>
+    );
 }

@@ -29,7 +29,7 @@ function CreatePlanner() {
                     {/* <AppendCard selectedItems={selectedItems} setSelectedItems={setSelectedItems} /> */}
                 </Grid>
                 <Grid item className="maparea" xs={12} sm={8}>
-                    {/* <Map selectedItems={selectedItems} /> */}
+                    <Map selectedItems={selectedItems} />
                 </Grid>
                 <Grid item className="rightbar" xs={12} sm={2}>
                     <TourCard
@@ -39,6 +39,7 @@ function CreatePlanner() {
                     />
                 </Grid>
             </Grid>
+            {console.log(selectedItems)}
         </div>
     );
 }

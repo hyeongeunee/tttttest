@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { textOverCut } from './textOverCut.js';
 import './Map.css';
+import { textOverCut } from './textOverCut.js';
 
 function Map({ selectedItems }) {
     useEffect(() => {
@@ -15,14 +15,16 @@ function Map({ selectedItems }) {
 
         const positions = [];
 
-        // const lineLine = new kakao.maps.Polyline();
         let linePath = [];
 
-        for (let i = 0; i < selectedItems.length; i++) {
+        // Map 컴포넌트 내에서 flattenedItems 로컬 변수로 설정
+        const flattenedItems = selectedItems.flat();
+
+        for (let i = 0; i < flattenedItems.length; i++) {
             const position = {
-                title: selectedItems[i].title,
-                latlng: new kakao.maps.LatLng(selectedItems[i].mapy, selectedItems[i].mapx),
-                firstimage: selectedItems[i].firstimage,
+                title: flattenedItems[i].title,
+                latlng: new kakao.maps.LatLng(flattenedItems[i].mapy, flattenedItems[i].mapx),
+                firstimage: flattenedItems[i].firstimage,
             };
             positions.push(position);
         }
@@ -57,15 +59,17 @@ function Map({ selectedItems }) {
             });
 
             const content = `<div class="overlaybox">
-                        <div class="boxtitle" onclick="closeOverlay(${k})">${positions[k].title}</div>
+                        <div class="boxtitle" onclick="closeOverlay(${k})">${flattenedItems[k].title}</div>
                         <div class="first">
                             <img src="${
                                 positions[k].firstimage
                             }" alt="tour Image" style="width: 100%; height: 100%; object-fit: cover;">
                             <div class="triangle text">${k + 1}</div>
-                            <div class="addr text">${selectedItems[k].addr1}</div>
+                            <div class="addr text">${flattenedItems[k].addr1}</div>
                         </div>
-                        <span class="title">${textOverCut(selectedItems[k].overview, 102, ' ... ')}</span>
+                        <span class="title">
+                        ${textOverCut(flattenedItems[k].overview, 102, ' ... ')}
+                        </span>
                     </div>`;
 
             const overlay = new kakao.maps.CustomOverlay({

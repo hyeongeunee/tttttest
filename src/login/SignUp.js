@@ -31,9 +31,9 @@ const theme = createTheme({
 });
 
 export default function SignUp() {
-    const iconBtn = (e) =>{
-        e.preventDefault()
-    }
+    const iconBtn = (e) => {
+        e.preventDefault();
+    };
     const [showPassword, setShowPassword] = React.useState(false);
     const [showPassword2, setShowPassword2] = React.useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -66,9 +66,7 @@ export default function SignUp() {
                     }}
                 >
                     <Link to="/">
-                        <Button>
-                            메인버튼
-                        </Button>
+                        <Button>메인버튼</Button>
                     </Link>
                     <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
                         <LockOutlinedIcon />
@@ -191,9 +189,17 @@ export default function SignUp() {
                             <Grid item xs={12}>
                                 <FormControl>
                                     <FormLabel id="gender">성별</FormLabel>
-                                    <RadioGroup row name="row-radio-buttons-group" >
-                                        <FormControlLabel value="male" control={<Radio sx={{ marginLeft: 'auto', marginRight: 'auto' }}/>} label="남자" />
-                                        <FormControlLabel value="female" control={<Radio sx={{ marginLeft: 'auto', marginRight: 'auto' }}/>} label="여자" />
+                                    <RadioGroup row name="row-radio-buttons-group">
+                                        <FormControlLabel
+                                            value="male"
+                                            control={<Radio sx={{ marginLeft: 'auto', marginRight: 'auto' }} />}
+                                            label="남자"
+                                        />
+                                        <FormControlLabel
+                                            value="female"
+                                            control={<Radio sx={{ marginLeft: 'auto', marginRight: 'auto' }} />}
+                                            label="여자"
+                                        />
                                     </RadioGroup>
                                 </FormControl>
                             </Grid>

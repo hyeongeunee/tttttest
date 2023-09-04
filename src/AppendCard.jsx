@@ -12,17 +12,16 @@ export default function AppendCard({ selectedItems, setSelectedItems }) {
     const removeBtnClick = (itemToRemove) => {
         // 선택한 항목을 제외한 나머지 항목들을 유지하는 방법으로 필터링합니다.
         const updatedItems = selectedItems.filter((item) => item.contentid !== itemToRemove.contentid);
-        setSelectedItems(updatedItems);
+        setSelectedItems([updatedItems]);
     };
 
-    console.log(selectedItems);
-
     const itemsToDisplay = selectedItems || [];
+
     return (
         <>
             {itemsToDisplay.map((item, index) => (
                 <Card
-                    key={index}
+                    key={item.contentid}
                     sx={{
                         display: 'flex',
                         width: 'auto',
@@ -34,7 +33,13 @@ export default function AppendCard({ selectedItems, setSelectedItems }) {
                 >
                     <CardMedia
                         component="img"
-                        sx={{ width: 70, height: 70, flexGrow: '1', borderRadius: '5px', marginLeft: '10px' }}
+                        sx={{
+                            width: 70,
+                            height: 70,
+                            flexGrow: '1',
+                            borderRadius: '5px',
+                            marginLeft: '10px',
+                        }}
                         image={item.firstimage}
                     />
                     <CardContent sx={{ position: 'static', flexGrow: '5' }}>

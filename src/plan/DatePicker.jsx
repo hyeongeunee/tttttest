@@ -52,18 +52,22 @@ function DatePicker({ selectedItems, setSelectedIndex, setSelectedItems }) {
             const dayInMillis = 24 * 60 * 60 * 1000;
             const dateRangeInDays = (endDate - startDate) / dayInMillis + 1;
 
-            const dateCards = [[]];
+            const dateCards = [];
+
+            for (let i = 0; i < dateRangeInDays; i++) {
+                dateCards.push([]); // 각 날짜에 대한 빈 배열 생성
+            }
 
             for (let i = 0; i < dateRangeInDays; i++) {
                 const cardProps = {
-                    selectedItems: selectedItems[i],
+                    selectedItems: selectedItems[i] || [], // 빈 배열을 기본값으로 설정
                     day: i + 1,
-                    setSelectedItems: setSelectedItems, // 추가된 부분
+                    setSelectedItems: setSelectedItems,
                 };
 
                 const cardsForDate = [];
                 cardsForDate.push(<AppendCard key={i} {...cardProps} />);
-                dateCards.push(cardsForDate);
+                dateCards[i] = cardsForDate; // 해당 날짜의 배열에 카드 추가
             }
 
             if (dateRangeInDays > MAX_DATE) {
@@ -80,11 +84,10 @@ function DatePicker({ selectedItems, setSelectedIndex, setSelectedItems }) {
                             >
                                 <Typography>DAY {i + 1}</Typography>
                             </AccordionSummary>
-                            <AccordionDetails style={{ padding: 0 }}>{dateCards[i][0]}</AccordionDetails>
+                            <AccordionDetails style={{ padding: 0 }}>{dateCards[i]}</AccordionDetails>
                         </Accordion>
                     );
                 }
-                console.log(dateRangeInDays);
             }
             return accordions;
         },
